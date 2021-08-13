@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;700&display=swap');
+
+// Default variable overrides
+$body-bg: #2C262F;
+$body-color: #fff;
+$primary: #F8E71C;
+$dark: #2B262D;
+
+$font-size-base: 0.75rem;
+$font-family-base: "Open Sans",Roboto,Arial,sans-serif;
+$h2-font-size: 2.25rem;
+$h5-font-size: 1.125rem;
+$h6-font-size: $font-size-base;
+h5, .h5 {
+  letter-spacing: -.06rem;
+}
+h6, .h6 {
+  letter-spacing: .1rem;
+}
+
+$container-padding-x: 2rem;
+$container-padding-y: $container-padding-x;
+
+$card-border-radius: 10px;
+$card-border-width: 0;
+$card-title-spacer-y: -.25rem;
+
+$nav-link-color: $body-color;
+$nav-link-hover-color: $nav-link-color;
+$nav-link-disabled-color: $nav-link-color;
+
+$nav-tabs-border-color: $primary;
+$nav-tabs-link-active-color: $nav-link-color;
+$nav-tabs-link-active-bg: transparent;
+$nav-tabs-link-active-border-color: transparent transparent $primary;
+$nav-tabs-link-hover-border-color: $nav-tabs-link-active-border-color;
+
+.nav-tabs {
+  .nav-link {
+    border-bottom-width: 3px !important;
+  }
+  .nav-link.active,
+  .nav-item.show .nav-link {
+    font-weight: 700;
+  }
+}
+
+
+$list-group-color: $body-color;
+$list-group-bg: transparent;
+$list-group-border-color: #806F6F;
+$list-group-item-padding-x: 0;
+.list-group-item {
+  border-color:  transparent transparent $list-group-border-color!important;
+}
+
+
+@import "../node_modules/bootstrap/scss/bootstrap";
