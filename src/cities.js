@@ -1,7 +1,7 @@
 export const cities =[
     {
         id: 1,
-        img: 'https://lh3.googleusercontent.com/proxy/6yDUtM9KdDGnpuWBdHWxYtkZjg71f4v1qqeSRbLbGQ9qQx3b8NicFIpHJsNn7IjDSectxRryz5cVL2lT9ogf0iZe72i006n01Ul3nGFBan5IRA0XqFVd3AA',
+        img: 'https://most-beauty.ru/wp-content/uploads/2017/02/Berlin.jpg',
         city: 'Berlin',
         country: 'Germany',
     },

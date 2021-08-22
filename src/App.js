@@ -1,3 +1,4 @@
+import React from 'react';
 import './App.scss';
 
 import {cities} from './cities';
@@ -7,7 +8,7 @@ function App() {
 	return (
 		<div className="container pt-4 pb-4">
 			<div className="row row-cols-1 row-cols-lg-2 g-4">
-				{cities.map((city, index) => {
+				{cities.map((city) => {
 					return <City key={city.id} {...city}></City>;
 				})}
 			</div>
