@@ -35,16 +35,14 @@ $nav-tabs-link-active-bg: transparent;
 $nav-tabs-link-active-border-color: transparent transparent $primary;
 $nav-tabs-link-hover-border-color: $nav-tabs-link-active-border-color;
 
-.nav-tabs {
-  .nav-link {
-    border-bottom-width: 3px !important;
-  }
-  .nav-link.active,
-  .nav-item.show .nav-link {
+.nav-link {
+  border-bottom-width: 3px !important;
+   cursor: pointer;
+   .nav-tabs .active & {
+    border-color: $nav-tabs-link-active-border-color;
     font-weight: 700;
-  }
+   }
 }
-
 
 $list-group-color: $body-color;
 $list-group-bg: transparent;
