@@ -2,16 +2,9 @@ import React from 'react';
 import { format } from 'date-fns';
 import { Tabs, TabList, Tab, TabPanel } from 'react-tabs';
 
-//import { ReactComponent as IconCloudy } from './weather-icons/icon-cloudy.svg';
-//import { ReactComponent as IconFrost } from './weather-icons/icon-frost.svg';
-//import { ReactComponent as IconHeavyRain } from './weather-icons/icon-heavy-rain.svg';
+// Import necessary weather-icon's component from folder './weather-icons'
 import { ReactComponent as IconIntenseFog } from './weather-icons/icon-intense-fog.svg';
-//import { ReactComponent as IconIntenseRain } from './weather-icons/icon-intense-rain.svg';
-//import { ReactComponent as IconMostlyCloudy } from './weather-icons/icon-mostly-cloudy.svg';
 import { ReactComponent as IconPartlyCloudy } from './weather-icons/icon-partly-cloudy.svg';
-//import { ReactComponent as IconPrecipitation } from './weather-icons/icon-precipitation.svg';
-//import { ReactComponent as IconRain } from './weather-icons/icon-rain.svg';
-//import { ReactComponent as IconSnow } from './weather-icons/icon-snow.svg';
 import { ReactComponent as IconStrongMist } from './weather-icons/icon-strong-mist.svg';
 import { ReactComponent as IconSunny } from './weather-icons/icon-sunny.svg';
 
