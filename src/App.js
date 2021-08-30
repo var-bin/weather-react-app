@@ -1,18 +1,31 @@
 import React from 'react';
 import './App.scss';
 
-import {cities} from './cities';
-import City from './City';
+// React router
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+// Pages
+import Home from './Home';
+import Favorites from './Favorites';
+import Error from './Error';
+// Navbar
+import Navbar from './Navbar';
 
 function App() {
 	return (
-		<div className="container pt-4 pb-4">
-			<div className="row row-cols-1 row-cols-lg-2 g-4">
-				{cities.map((city) => {
-					return <City key={city.id} {...city}></City>;
-				})}
-			</div>
-		</div>
+		<Router>
+			<Navbar />
+			<Switch>
+				<Route exact path="/">
+					<Home />
+				</Route>
+				<Route path="/favorites">
+					<Favorites />
+				</Route>
+				<Route path="*">
+					<Error />
+				</Route>
+			</Switch>
+		</Router>
 	);
 }
 

@@ -6,6 +6,12 @@ $body-color: #fff;
 $primary: #F8E71C;
 $dark: #2B262D;
 
+// Show it is fixed to the top
+body {
+  min-height: 75rem;
+  padding-top: 4.5rem;
+}
+
 $font-size-base: 0.75rem;
 $font-family-base: "Open Sans",Roboto,Arial,sans-serif;
 $h2-font-size: 2.25rem;

@@ -8,10 +8,15 @@ import { ReactComponent as IconPartlyCloudy } from './weather-icons/icon-partly-
 import { ReactComponent as IconStrongMist } from './weather-icons/icon-strong-mist.svg';
 import { ReactComponent as IconSunny } from './weather-icons/icon-sunny.svg';
 
-const City = ({img, city, country}) => {
+// Import necessary favorites icon's component from folder './heart-icons'
+import { ReactComponent as IconHeart } from './status-icons/heart.svg';
+import { ReactComponent as IconHeartFill } from './status-icons/heart-fill.svg';
+import { ReactComponent as IconDelete } from './status-icons/x-circle.svg';
+
+const City = ({img, city, country, onIsFavorite, isFavorite, onDeleteFavorite}) => {
     const time =  format(new Date(), "k':'mm bbbb");
     const data =  format(new Date(), "EEEE',' MMMM do");
-    
+         
     return (
 		<div className="col">
             <div className="card shadow">
@@ -29,6 +34,23 @@ const City = ({img, city, country}) => {
                     </div>
                     <div className="row align-items-end">
                         <div className="col">
+                            <div className="row mb-5">
+                                {!isFavorite && 
+                                    <div className="col d-flex justify-content-center" onClick={() => onIsFavorite()}>
+                                        <IconHeart width={50} height={50} role="button" />
+                                    </div>
+                                }
+                                {isFavorite &&
+                                    <div className="col d-flex justify-content-center">
+                                        <IconHeartFill width={50} height={50} role="button" />
+                                    </div>
+                                }
+                                {isFavorite &&
+                                    <div className="col d-flex justify-content-center"  onClick={() => onDeleteFavorite()}>
+                                        <IconDelete width={50} height={50} role="button" />
+                                    </div>
+                                }
+                            </div>
                             <div className="row row-cols-auto g-0 align-items-end">
                                 <div className="col">
                                     <h2 className="card-title fw-normal me-3">65&#176;</h2>
