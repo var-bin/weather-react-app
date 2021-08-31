@@ -32,7 +32,6 @@ const Home = () => {
                                     city: city.city,
                                     country: city.country,
                             })}
-                            isFavorite={false}
                         >
                         </City>
                     );      

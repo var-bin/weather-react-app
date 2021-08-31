@@ -13,7 +13,7 @@ import { ReactComponent as IconHeart } from './status-icons/heart.svg';
 import { ReactComponent as IconHeartFill } from './status-icons/heart-fill.svg';
 import { ReactComponent as IconDelete } from './status-icons/x-circle.svg';
 
-const City = ({img, city, country, onIsFavorite, isFavorite, onDeleteFavorite}) => {
+const City = ({img, city, country, onIsFavorite, isFavorite, isShowDelete, onDeleteFavorite}) => {
     const time =  format(new Date(), "k':'mm bbbb");
     const data =  format(new Date(), "EEEE',' MMMM do");
          
@@ -45,7 +45,7 @@ const City = ({img, city, country, onIsFavorite, isFavorite, onDeleteFavorite}) 
                                         <IconHeartFill width={50} height={50} role="button" />
                                     </div>
                                 }
-                                {isFavorite &&
+                                {isShowDelete &&
                                     <div className="col d-flex justify-content-center"  onClick={() => onDeleteFavorite()}>
                                         <IconDelete width={50} height={50} role="button" />
                                     </div>

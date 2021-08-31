@@ -1,24 +1,34 @@
 export const reducer = (state, action) => {
     if (action.type === 'ADD_FAVORITE_ITEM') {
-        const addedFavorites = state.favorites.concat({ 
+        // update props for {cities}
+        const cityIsFavorite = state.cities.find((city) => city.id === action.id);
+        cityIsFavorite.isFavorite = true;
+    
+        console.log(cityIsFavorite);
+
+        // creacte new {favorites} in LocalStorage
+        const newFavorites = state.favorites.concat({ 
             id: action.id,
             img: action.img,
             city: action.city,
             country: action.country,
             isFavorite: true,
+            isShowDelete: true,
         });
-        localStorage.setItem('favorites', JSON.stringify(addedFavorites));
+        localStorage.setItem('favorites', JSON.stringify(newFavorites));
+    
         return {
-            ...state,
-            favorites: addedFavorites,
+            cities: state.cities,
+            favorites: newFavorites,
         };
     }
     if (action.type === 'REMOVE_FAVORITE') {
-        const newFavorites = state.favorites.filter((city) => city.id !== action.payload); 
-        localStorage.setItem('favorites', JSON.stringify(newFavorites));
+        // remove items from {favorites} in LocalStorage
+        const restFavorites = state.favorites.filter((city) => city.id !== action.payload); 
+        localStorage.setItem('favorites', JSON.stringify(restFavorites));
         return {
             ...state,
-            favorites: newFavorites,
+            favorites: restFavorites,
         };
     }
     throw new Error ('no matching action type');
