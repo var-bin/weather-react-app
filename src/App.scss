@@ -58,4 +58,6 @@ $list-group-item-padding-x: 0;
   border-color:  transparent transparent $list-group-border-color!important;
 }
 
+$btn-focus-box-shadow: none;
+
 @import "~bootstrap/scss/bootstrap";

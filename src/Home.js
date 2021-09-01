@@ -1,4 +1,4 @@
-import React, { useReducer} from 'react';
+import React, { useEffect, useReducer} from 'react';
 //import { useGetAxios } from './useGetAxios';
 import { reducer } from './reducer';
 import { cities } from './cities';
@@ -16,14 +16,19 @@ const Home = () => {
 
     const [state, dispatch] = useReducer(reducer, defaultState);
 
+    useEffect(() => {
+        // set {favorites} to local storage 
+        localStorage.setItem('favorites', JSON.stringify(state.favorites));
+    }, [state.favorites]);
+
     return (
         <div className="container pt-4 pb-4">
             <div className="row row-cols-1 row-cols-lg-2 g-4">
                 {state.cities.map((city) => {
                     return (
                         <City 
-                            key={city.id} 
                             {...city} 
+                            key={city.id} 
                             onIsFavorite={() =>  
                                 dispatch({ 
                                     type: 'ADD_FAVORITE_ITEM', 

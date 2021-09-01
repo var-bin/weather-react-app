@@ -2,10 +2,10 @@ import React, { useReducer} from 'react';
 import City from './City';
 import { reducer } from './reducer';
 
-const Favorites = () => {
-    // Retrieve the array from local storage and parse
-    const arrayFavorites = JSON.parse(localStorage.getItem('favorites'));
-    
+const Favorites = () => { 
+    // retrieve the array from local storage and parse
+    const arrayFavorites = JSON.parse(localStorage.getItem('favorites'));  
+
     const defaultState = {
         favorites: arrayFavorites,
     };
@@ -16,7 +16,7 @@ const Favorites = () => {
             <div className="row row-cols-1 row-cols-lg-2 g-4">
                 {state.favorites.map((city) => {
                     return (
-                        <City key={city.id} {...city} 
+                        <City {...city} key={city.id} 
                         isFavorite={true}
                         onDeleteFavorite={() => dispatch({ type: 'REMOVE_FAVORITE', payload: city.id})}></City>
                     );      
