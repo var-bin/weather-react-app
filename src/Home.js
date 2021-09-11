@@ -5,14 +5,14 @@ import City from './City';
 const Home = () => {
     const { state, dispatch } = useContext(GlobalContext);
 
-     if (state.isLoading) return (
+    if (state.isLoading) return (
         <div className="container pt-4 pb-4">
             <div className="row row-cols-1 row-cols-lg-2 g-4">
             loading...
             </div>
         </div>
-    ); 
-
+    );
+    
     return (
         <div className="container pt-4 pb-4">
             <div className="row row-cols-1 row-cols-lg-2 g-4">
@@ -41,7 +41,6 @@ const Home = () => {
                                     weatherTemperatureUnit: city.Temperature.Metric.Unit,
                                     weatherTemperatureValue: city.Temperature.Metric.Value,
                             })}
-                      
                         ></City>
                     );
                 })}  
