@@ -1,14 +1,14 @@
 import React, { useContext, useEffect } from 'react';
-import axios from "axios";
+import axios from 'axios';
 import { createApi } from 'unsplash-js';
-import { GlobalContext } from "./GlobalContext";
-import './App.scss';
+import { GlobalContext } from './GlobalContext';
+import './css/App.scss';
 // React router
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 // Pages
-import Home from './Home';
-import Favorites from './Favorites';
-import Error from './Error';
+import Home from './pages/Home';
+import Favorites from './pages/Favorites';
+import Error from './pages/Error';
 // Navbar
 import Navbar from './Navbar';
 
@@ -20,8 +20,8 @@ function App() {
 			try {
 				const url = 'http://dataservice.accuweather.com/currentconditions/v1/topcities/50?apikey=r0f1L4gMsX9SDBDfkv3b8tlkPCBILlvL&language=en';
 				const res = await axios.get(url);
-				// '4' - amount the weather card items
-				dispatch({ type: "CURRENT_CONDITIONS", payload: res.data.slice(0, 4) });
+				// slice(0, N) - amount the weather card items
+				dispatch({ type: "CURRENT_CONDITIONS", payload: res.data.slice(0, 3) });
 				dispatch({ type: "LOADING", payload: false });
 			}
 			catch {(error) => {
@@ -29,7 +29,7 @@ function App() {
 				dispatch({ type: "LOADING", payload: false });
 			}}
 		})();
-	}, [dispatch]);
+	}, []);
 
 	useEffect(() => {
 		dispatch({ type: "LOADING", payload: true });
@@ -69,7 +69,7 @@ function App() {
 
 			})();
 		}
-	}, [state.weather, dispatch]);
+	}, [state.weather]);
 
 	return (
 		<Router>

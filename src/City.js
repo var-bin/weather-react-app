@@ -1,12 +1,7 @@
 import React from 'react';
 import { format } from 'date-fns';
-
-// import  weather-icon's
-import { IconCloudy, IconFrost, IconHeavyRain, IconIntenseFog,
-    IconIntenseRain, IconMostlyCloudy, IconPartlyCloudy, IconPrecipitation, 
-    IconRain, IconSnow, IconStrongMist, IconSunny } from './icons/Icons';
-// import  favorites icon's 
-import { IconHeart,  IconHeartFill, IconDelete } from './icons/Icons';
+// import  weather and favorites icon's 
+import { IconWeather, IconHeart,  IconHeartFill, IconDelete } from './icons/Icons';
 
 const City = ({img, city, country, weatherText, weatherIcon, weatherTemperatureValue, weatherTemperatureUnit, onIsFavorite, isFavorite, isShowDelete, onDeleteFavorite}) => {
     const time =  format(new Date(), "k':'mm bbbb");
@@ -32,46 +27,6 @@ const City = ({img, city, country, weatherText, weatherIcon, weatherTemperatureV
         }
         return null;
     };
-    const IconWeather = () => {
-        if (weatherIcon === 7) {
-            return <IconCloudy />;
-        }
-        if (weatherIcon === 31 || weatherIcon === 24) {
-            return <IconFrost />;
-        }
-        if (weatherIcon ===16|| weatherIcon === 17) {
-            return <IconHeavyRain />;
-        }
-        if (weatherIcon === 11) {
-            return <IconIntenseFog />;
-        }
-        if (weatherIcon === 15) {
-            return <IconIntenseRain />;
-        }
-        if (weatherIcon === 6 || weatherIcon === 20 || weatherIcon === 23 || weatherIcon === 38 || 
-            weatherIcon === 40 || weatherIcon === 42 || weatherIcon === 43 || weatherIcon === 44) {
-            return <IconMostlyCloudy />;
-        }
-        if (weatherIcon === 3 || weatherIcon === 4 || weatherIcon === 35) {
-            return <IconPartlyCloudy />;
-        }
-        if (weatherIcon === 12 || weatherIcon === 13 || weatherIcon === 14) {
-            return <IconPrecipitation />;
-        }
-        if (weatherIcon === 18) {
-            return <IconRain />;
-        }
-        if (weatherIcon === 22) {
-            return <IconSnow />;
-        }
-        if (weatherIcon === 8) {
-            return <IconStrongMist />;
-        }
-        if (weatherIcon === 1 || weatherIcon === 2 || weatherIcon === 33) {
-            return <IconSunny />;
-        }
-        return null;
-    };
          
     return (
 		<div className="col">
@@ -84,7 +39,7 @@ const City = ({img, city, country, weatherText, weatherIcon, weatherTemperatureV
                             <h6 className="card-text text-uppercase fw-light lh-1">{country}</h6>
                         </div>
                         <div className="col text-center mb-3 ms-5">
-                            <IconWeather />
+                            <IconWeather iconNumb={weatherIcon} />
                             <h4 className="card-text fw-light">{weatherText}</h4>
                         </div>
                     </div>
