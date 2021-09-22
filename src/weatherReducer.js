@@ -18,8 +18,15 @@ export const weatherReducer = (state, action) => {
         };
     }
     if (action.type === 'ADD_FAVORITE_ITEM') {
-        const cityIsFavorite = state.weather.find((city) => city.Key === action.payload);
-        cityIsFavorite.isFavorite = true;
+/*         const cityIsFavorite = state.weather.find((city) => city.Key === action.payload);
+        cityIsFavorite.isFavorite = true; */
+
+        const cityIsFavoriteIndex = state.weather.findIndex(city => city.Key === action.payload);
+        let weatherIsFavorite = [...state.weather];
+        weatherIsFavorite[cityIsFavoriteIndex] = {
+            ...weatherIsFavorite[cityIsFavoriteIndex],
+            isFavorite: true
+        };
 
         // creacte new {favorites}
         const { payload, ...restPayload } = action;
@@ -31,18 +38,27 @@ export const weatherReducer = (state, action) => {
         });
         return {
             ...state,
-            weather: state.weather,
+            /* weather: state.weatheNotFavorite, */
+            weather: weatherIsFavorite,
             favorites: newFavorites,
         };
     }
     if (action.type === 'REMOVE_FAVORITE') {
-        const cityNotFavorite = state.weather.find((city) => city.Key === action.payload);
-        cityNotFavorite.isFavorite = false;
+        /* const cityNotFavorite = state.weather.find((city) => city.Key === action.payload);
+        cityNotFavorite.isFavorite = false; */
+
+        const cityNotFavoriteIndex = state.weather.findIndex(city => city.Key === action.payload);
+        let weatheNotFavorite = [...state.weather];
+        weatheNotFavorite[cityNotFavoriteIndex] = {
+            ...weatheNotFavorite[cityNotFavoriteIndex],
+            isFavorite: false
+        };
 
         const restFavorites = state.favorites.filter((city) => city.Key !== action.payload);
         return {
             ...state,
-            weather: state.weather,
+            /* weather: state.weatheNotFavorite, */
+            weather: weatheNotFavorite,
             favorites: restFavorites,
         };
     }

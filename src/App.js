@@ -21,7 +21,7 @@ function App() {
 				const url = 'http://dataservice.accuweather.com/currentconditions/v1/topcities/50?apikey=r0f1L4gMsX9SDBDfkv3b8tlkPCBILlvL&language=en';
 				const res = await axios.get(url);
 				// slice(0, N) - amount the weather card items
-				dispatch({ type: "CURRENT_CONDITIONS", payload: res.data.slice(0, 3) });
+				dispatch({ type: "CURRENT_CONDITIONS", payload: res.data.slice(0, 2) });
 				dispatch({ type: "LOADING", payload: false });
 			}
 			catch {(error) => {
