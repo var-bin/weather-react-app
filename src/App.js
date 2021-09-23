@@ -50,13 +50,6 @@ function App() {
 			});
 
 			(async () => {
-			/* code for fetch one image from unsplash
-			 	try {
-					const urlImage = 'https://api.unsplash.com/photos/random/?client_id=UFb-0W1ebRAVU6jawg9txBoQf633c4t8tA7TRvpDb88&query=${state.weather[0].EnglishName}';
-					const resultImage = await axios.get(urlImage);
-					dispatch({ type: "IMAGES", payload: resultImage.data.urls.regular });
-				} */
-
 				try {
 					const values = await Promise.all(photoPromises);
 					dispatch({ type: "IMAGES", payload: values.map((item) => item.response[0].urls.small) });

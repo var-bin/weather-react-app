@@ -13,7 +13,7 @@ const CityWrapped = props => {
         ...restValues
       } = props.city;
 
-    const index = props.index;
+    const { index, isFavorite } = props;
 
     const onIsFavoriteHandler = () => {
         dispatch({
@@ -37,6 +37,7 @@ const CityWrapped = props => {
             country={Country.LocalizedName}
             weatherTemperatureUnit={Temperature.Metric.Unit}
             weatherTemperatureValue={Temperature.Metric.Value}
+            isFavorite={isFavorite}
             onIsFavorite={onIsFavoriteHandler}
         />
     );
