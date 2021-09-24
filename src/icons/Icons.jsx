@@ -1,5 +1,9 @@
 import React from 'react';
 
+import { ReactComponent as IconHeartComponent } from './status-icons/heart.svg';
+import { ReactComponent as IconHeartFillComponent } from './status-icons/heart-fill.svg';
+import { ReactComponent as IconDeleteComponent } from './status-icons/x-circle.svg';
+
 import { ReactComponent as IconCloudyComponent } from './weather-icons/icon-cloudy.svg';
 import { ReactComponent as IconFrostComponent } from './weather-icons/icon-frost.svg';
 import { ReactComponent as IconHeavyRainComponent } from './weather-icons/icon-heavy-rain.svg';
@@ -13,23 +17,39 @@ import { ReactComponent as IconSnowComponent } from './weather-icons/icon-snow.s
 import { ReactComponent as IconStrongMistComponent } from './weather-icons/icon-strong-mist.svg';
 import { ReactComponent as IconSunnyComponent } from './weather-icons/icon-sunny.svg';
 
-import { ReactComponent as IconHeartComponent } from './status-icons/heart.svg';
-import { ReactComponent as IconHeartFillComponent } from './status-icons/heart-fill.svg';
-import { ReactComponent as IconDeleteComponent } from './status-icons/x-circle.svg';
+export const IconHeart = () => <IconHeartComponent />;
+export const IconHeartFill = () => <IconHeartFillComponent />;
+export const IconDelete = () => <IconDeleteComponent />;
 
-export const IconCloudy = () => <IconCloudyComponent width={50} height={50} />;
-export const IconFrost = () => <IconFrostComponent width={50} height={50} />;
-export const IconHeavyRain = () => <IconHeavyRainComponent width={50} height={50} />;
-export const IconIntenseFog = () => <IconIntenseFogComponent width={50} height={50} />;
-export const IconIntenseRain = () => <IconIntenseRainComponent width={50} height={50} />;
-export const IconMostlyCloudy = () => <IconMostlyCloudyComponent width={50} height={50} />;
-export const IconPartlyCloudy = () => <IconPartlyCloudyComponent width={50} height={50} />;
-export const IconPrecipitation = () => <IconPrecipitationComponent width={50} height={50} />;
-export const IconRain = () => <IconRainComponent width={50} height={50} />;
-export const IconSnow = () => <IconSnowComponent width={50} height={50} />;
-export const IconStrongMist = () => <IconStrongMistComponent width={50} height={50} />;
-export const IconSunny = () => <IconSunnyComponent width={50} height={50} />;
-
-export const IconHeart = () => <IconHeartComponent width={50} height={50} />;
-export const IconHeartFill = () => <IconHeartFillComponent width={50} height={50} />;
-export const IconDelete = () => <IconDeleteComponent width={50} height={50} />;
+export const IconWeather = props => {
+    const iconByWeather = {
+        '7':  <IconCloudyComponent />,
+        '31': <IconFrostComponent />,
+        '24': <IconFrostComponent />,
+        '16': <IconHeavyRainComponent />,
+        '17': <IconHeavyRainComponent />,
+        '11': <IconIntenseFogComponent />,
+        '15': <IconIntenseRainComponent />,
+        '6':  <IconMostlyCloudyComponent />,
+        '20': <IconMostlyCloudyComponent />,
+        '23': <IconMostlyCloudyComponent />,
+        '38': <IconMostlyCloudyComponent />,
+        '40': <IconMostlyCloudyComponent />,
+        '42': <IconMostlyCloudyComponent />,
+        '43': <IconMostlyCloudyComponent />,
+        '44': <IconMostlyCloudyComponent />,
+        '3':  <IconPartlyCloudyComponent />,
+        '4':  <IconPartlyCloudyComponent />,
+        '35': <IconPartlyCloudyComponent />,
+        '12': <IconPrecipitationComponent />,
+        '13': <IconPrecipitationComponent />,
+        '14': <IconPrecipitationComponent />,
+        '18': <IconRainComponent />,
+        '22': <IconSnowComponent />,
+        '8':  <IconStrongMistComponent />,
+        '1':  <IconSunnyComponent />,
+        '2':  <IconSunnyComponent />,
+        '33': <IconSunnyComponent />,  
+    }
+    return  iconByWeather[props.iconNumb] || null;
+};
