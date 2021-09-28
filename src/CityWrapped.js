@@ -1,9 +1,11 @@
-import React, { useContext } from 'react';
-import { GlobalContext } from './GlobalContext';
+import React from 'react';
+import { useSelector, useDispatch } from "react-redux";
+import { addFavoriteItem } from "./features/favoritesSlice";
 import City from './City';
 
 const CityWrapped = props => {
-    const { state, dispatch } = useContext(GlobalContext);
+    const images = useSelector(state => state.weather.images);
+    const dispatch = useDispatch();
 
     const {
         Key,
@@ -16,23 +18,25 @@ const CityWrapped = props => {
     const { index, isFavorite } = props;
 
     const onIsFavoriteHandler = () => {
-        dispatch({
-            type: 'ADD_FAVORITE_ITEM',
-            payload: Key,
-            img: state.images[index],
+        dispatch(addFavoriteItem({
+            Key,
+            img: images[index],
+            city: LocalizedName,
             country: Country.LocalizedName,
             weatherTemperatureUnit: Temperature.Metric.Unit,
             weatherTemperatureValue: Temperature.Metric.Value,
+            isFavorite: true,
+            isShowDelete: true,
 
             ...restValues,
-        });
+        }));
     }
 
     return (
         <City
             {...restValues}
 
-            img={state.images[index]}
+            img={images[index]}
             city={LocalizedName}
             country={Country.LocalizedName}
             weatherTemperatureUnit={Temperature.Metric.Unit}
