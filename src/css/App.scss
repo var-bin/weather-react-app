@@ -58,9 +58,21 @@ $list-group-bg: transparent;
 $list-group-border-color: #806F6F;
 $list-group-item-padding-x: 0;
 .list-group-item {
-  border-color:  transparent transparent $list-group-border-color!important;
+  border-color:  transparent transparent $list-group-border-color !important;
 }
 
 $btn-focus-box-shadow: none;
+$input-bg: #fff;
+
+.form-switch {
+  padding-left: 0 !important;
+  .form-check-input {
+    margin: 6px 5px !important;
+    float: none !important;
+  }
+   svg {
+     font-size: 1em
+   }
+}
 
 @import "~bootstrap/scss/bootstrap";

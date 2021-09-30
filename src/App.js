@@ -13,7 +13,9 @@ import Home from './pages/Home';
 import Favorites from './pages/Favorites';
 import Error from './pages/Error';
 // Navbar
-import Navbar from './Navbar';
+import Navbar from './components/Navbar';
+import Sortbar from './components/Sortbar';
+
 function App() {
 	const weather = useSelector(state => state.weather.weather);
 	const dispatch = useDispatch();
@@ -70,6 +72,7 @@ function App() {
 	return (
 		<Router>
 			<Navbar />
+			<Sortbar />
 			<Switch>
 				<Route exact path="/">
 					<Home />

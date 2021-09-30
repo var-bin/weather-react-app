@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { removeFavoriteItem } from "../features/favoritesSlice";
-import City from '../City';
+import City from '../components/City';
 
 const Favorites = () => {
     const favorites = useSelector(state => state.favorites.favorites);

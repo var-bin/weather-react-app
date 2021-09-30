@@ -1,7 +1,7 @@
 import React from 'react';
 import { format } from 'date-fns';
-// import  weather and favorites icon's 
-import { IconWeather, IconHeart,  IconHeartFill, IconDelete } from './icons/Icons';
+// import  weather and favorites icon's
+import { IconWeather, IconHeart,  IconHeartFill, IconDelete } from '../icons/Icons';
 
 const City = ({img, city, country, weatherText, weatherIcon, weatherTemperatureValue, weatherTemperatureUnit, onIsFavorite, isFavorite, isShowDelete, onDeleteFavorite}) => {
     const time =  format(new Date(), "k':'mm bbbb");
@@ -27,7 +27,7 @@ const City = ({img, city, country, weatherText, weatherIcon, weatherTemperatureV
         }
         return null;
     };
-         
+
     return (
 		<div className="col">
             <div className="card shadow">

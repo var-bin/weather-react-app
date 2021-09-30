@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from "react-redux";
-import CityWrapped from '../CityWrapped';
+import CityWrapped from '../components/CityWrapped';
 
 const Home = () => {
     const isLoading = useSelector(state => state.weather.isLoading);

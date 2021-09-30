@@ -1,5 +1,8 @@
 import React from 'react';
 
+import { ReactComponent as IconGridComponent } from './layout-icons/grid.svg';
+import { ReactComponent as IconListComponent } from './layout-icons/list.svg';
+
 import { ReactComponent as IconHeartComponent } from './status-icons/heart.svg';
 import { ReactComponent as IconHeartFillComponent } from './status-icons/heart-fill.svg';
 import { ReactComponent as IconDeleteComponent } from './status-icons/x-circle.svg';
@@ -16,6 +19,9 @@ import { ReactComponent as IconRainComponent } from './weather-icons/icon-rain.s
 import { ReactComponent as IconSnowComponent } from './weather-icons/icon-snow.svg';
 import { ReactComponent as IconStrongMistComponent } from './weather-icons/icon-strong-mist.svg';
 import { ReactComponent as IconSunnyComponent } from './weather-icons/icon-sunny.svg';
+
+export const IconGrid = () => <IconGridComponent />;
+export const IconList = () => <IconListComponent />;
 
 export const IconHeart = () => <IconHeartComponent />;
 export const IconHeartFill = () => <IconHeartFillComponent />;
@@ -49,7 +55,7 @@ export const IconWeather = props => {
         '8':  <IconStrongMistComponent />,
         '1':  <IconSunnyComponent />,
         '2':  <IconSunnyComponent />,
-        '33': <IconSunnyComponent />,  
+        '33': <IconSunnyComponent />,
     }
     return  iconByWeather[props.iconNumb] || null;
 };
