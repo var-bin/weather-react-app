@@ -25,6 +25,8 @@ const CityWrapped = props => {
             country: Country.LocalizedName,
             weatherTemperatureUnit: Temperature.Metric.Unit,
             weatherTemperatureValue: Temperature.Metric.Value,
+            weatherTemperatureUnitF: Temperature.Imperial.Unit,
+            weatherTemperatureValueF: Temperature.Imperial.Value,
             isFavorite: true,
             isShowDelete: true,
 
@@ -41,6 +43,8 @@ const CityWrapped = props => {
             country={Country.LocalizedName}
             weatherTemperatureUnit={Temperature.Metric.Unit}
             weatherTemperatureValue={Temperature.Metric.Value}
+            weatherTemperatureUnitF={Temperature.Imperial.Unit}
+            weatherTemperatureValueF={Temperature.Imperial.Value}
             isFavorite={isFavorite}
             onIsFavorite={onIsFavoriteHandler}
         />

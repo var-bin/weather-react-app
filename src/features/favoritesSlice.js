@@ -7,18 +7,18 @@ export const favoritesSlice = createSlice({
   },
   reducers: {
     addFavoriteItem: (state, action) => {
-        state.favorites = state.favorites.concat(action.payload);
+      state.favorites = state.favorites.concat(action.payload);
     },
     removeFavoriteItem: (state, action) => {
-        state.favorites = state.favorites.filter((city) => city.Key !== action.payload);
+      state.favorites = state.favorites.filter((city) => city.Key !== action.payload);
     },
   }
 })
 
 // Action creators are generated for each case reducer function
 export const {
-    addFavoriteItem,
-    removeFavoriteItem
+  addFavoriteItem,
+  removeFavoriteItem
 } = favoritesSlice.actions;
 
 export default favoritesSlice.reducer;

@@ -2,8 +2,13 @@ import React from 'react';
 import { format } from 'date-fns';
 // import  weather and favorites icon's
 import { IconWeather, IconHeart,  IconHeartFill, IconDelete } from '../icons/Icons';
+import { useSelector } from "react-redux";
 
-const City = ({img, city, country, weatherText, weatherIcon, weatherTemperatureValue, weatherTemperatureUnit, onIsFavorite, isFavorite, isShowDelete, onDeleteFavorite}) => {
+const City = ({img, city, country, weatherText, weatherIcon, weatherTemperatureValue, weatherTemperatureUnit,
+    weatherTemperatureUnitF, weatherTemperatureValueF, onIsFavorite, isFavorite, isShowDelete, onDeleteFavorite}) => {
+
+    const isUnitImperial = useSelector(state => state.switcher.isUnitImperial);
+
     const time =  format(new Date(), "k':'mm bbbb");
     const data =  format(new Date(), "EEEE',' MMMM do");
 
@@ -51,8 +56,11 @@ const City = ({img, city, country, weatherText, weatherIcon, weatherTemperatureV
                             </div>
                             <div className="row row-cols-auto g-0 align-items-end">
                                 <div className="col">
-                                    <h2 className="card-title fw-normal me-3">
+                                    <h2 className={`card-title fw-normal me-3 ${!isUnitImperial ? '' : 'd-none'}`}>
                                         {weatherTemperatureValue}&#176;{weatherTemperatureUnit}
+                                    </h2>
+                                    <h2 className={`card-title fw-normal me-3 ${isUnitImperial ? '' : 'd-none'}`}>
+                                        {weatherTemperatureValueF}&#176;{weatherTemperatureUnitF}
                                     </h2>
                                 </div>
                                 <div className="col">
