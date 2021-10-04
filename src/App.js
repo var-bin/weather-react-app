@@ -4,7 +4,7 @@ import { createApi } from 'unsplash-js';
 import './css/App.scss';
 
 import { useSelector, useDispatch } from "react-redux";
-import { loading, weatherData, imagesData } from "./features/weatherSlice";
+import { loading, weatherData, imagesData, concatData } from "./features/weatherSlice";
 
 // React router
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
@@ -58,13 +58,14 @@ function App() {
 				try {
 					const values = await Promise.all(photoPromises);
 					dispatch(imagesData(values.map((item) => item.response[0].urls.small)));
+					//Concat weather and images(unsplash) results in one object
+					dispatch(concatData());
 					dispatch(loading(false));
 				}
 				catch {(error) => {
 					console.log('Unsplash Error: ',error);
 					dispatch(loading(false));
 				}}
-
 			})();
 		}
 	}, [weather]);
