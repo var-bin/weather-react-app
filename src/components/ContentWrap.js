@@ -1,8 +1,8 @@
 import React from 'react';
-import { useSelector } from "react-redux";
+import { useIsListLayout } from "../features/switcherSlice";
 
 const ContentWrap = (props) => {
-    const isListLayout = useSelector(state => state.switcher.isListLayout);
+    const isListLayout = useIsListLayout();
 
     return (
         <div className="container pt-4 pb-4">

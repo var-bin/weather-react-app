@@ -8,12 +8,11 @@ const SwitchTemperature = () => {
     const toggleTemperatureIcon = () => {
         dispatch(toggleTemperature());
     };
-
     return (
         <div className="form-check form-switch">
-            <label htmlFor="switchTemperature" onClick={() => toggleTemperatureIcon()}>°C</label>
+            <label htmlFor="switchTemperature" onClick={toggleTemperatureIcon}>°C</label>
             <input className="form-check-input" type="checkbox" id="switchTemperature" />
-            <label htmlFor="switchTemperature" onClick={() => toggleTemperatureIcon()}>°F</label>
+            <label htmlFor="switchTemperature" onClick={toggleTemperatureIcon}>°F</label>
         </div>
     );
 };

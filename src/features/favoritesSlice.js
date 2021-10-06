@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { useSelector } from "react-redux";
 
 export const favoritesSlice = createSlice({
   name: 'favorites',
@@ -20,5 +21,10 @@ export const {
   addFavoriteItem,
   removeFavoriteItem
 } = favoritesSlice.actions;
+
+// selectors
+export const useFavorites = () => {
+  return useSelector(state => state.favorites.favorites);
+}
 
 export default favoritesSlice.reducer;

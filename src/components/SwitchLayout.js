@@ -13,11 +13,11 @@ const SwitchLayout = () => {
 
     return (
         <div className="form-check form-switch">
-            <label htmlFor="switchLayout" onClick={() => toggleLayoutIcon()}>
+            <label htmlFor="switchLayout" onClick={toggleLayoutIcon}>
                 <IconGrid/>
             </label>
             <input className="form-check-input" type="checkbox" id="switchLayout" />
-            <label htmlFor="switchLayout" onClick={() => toggleLayoutIcon()}>
+            <label htmlFor="switchLayout" onClick={toggleLayoutIcon}>
                 <IconList />
             </label>
         </div>

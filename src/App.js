@@ -3,8 +3,8 @@ import axios from 'axios';
 import { createApi } from 'unsplash-js';
 import './css/App.scss';
 
-import { useSelector, useDispatch } from "react-redux";
-import { loading, weatherData, imagesData, concatData } from "./features/weatherSlice";
+import { useDispatch } from "react-redux";
+import { loading, weatherData, imagesData, concatData, useWeather } from "./features/weatherSlice";
 
 // React router
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
@@ -17,7 +17,7 @@ import Navbar from './components/Navbar';
 import Sortbar from './components/Sortbar';
 
 function App() {
-	const weather = useSelector(state => state.weather.weather);
+	const weather = useWeather();
 	const dispatch = useDispatch();
 
 	useEffect(() => {

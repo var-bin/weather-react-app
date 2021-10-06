@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { useSelector } from "react-redux";
 
 export const weatherSlice = createSlice({
   name: 'weather',
@@ -43,5 +44,18 @@ export const {
   sortName,
   sortTemperature,
 } = weatherSlice.actions;
+
+// selectors
+export const useIsLoading = () => {
+  return useSelector(state => state.weather.isLoading);
+}
+
+export const useWeather = () => {
+  return useSelector(state => state.weather.weather);
+}
+
+export const useData = () => {
+  return useSelector(state => state.weather.data);
+}
 
 export default weatherSlice.reducer;

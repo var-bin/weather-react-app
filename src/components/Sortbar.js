@@ -18,10 +18,10 @@ const Sortbar = () => {
             <div className="nav-item d-inline-flex p-2 fw-bold">Sort by:</div>
             <div className="nav-item">
                 <div className="btn-group" role="group">
-                    <button type="button" className="btn btn-secondary fw-bold" onClick={() => sortNameCards()}>
+                    <button type="button" className="btn btn-secondary fw-bold" onClick={sortNameCards}>
                         City name
                     </button>
-                    <button type="button" className="btn btn-secondary fw-bold" onClick={() => sortTemperatureCards()}>
+                    <button type="button" className="btn btn-secondary fw-bold" onClick={sortTemperatureCards}>
                         Temperature
                     </button>
                 </div>

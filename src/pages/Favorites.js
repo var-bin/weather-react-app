@@ -1,11 +1,11 @@
 import React from 'react';
-import { useSelector, useDispatch } from "react-redux";
-import { removeFavoriteItem } from "../features/favoritesSlice";
+import { useDispatch } from "react-redux";
+import { removeFavoriteItem, useFavorites } from "../features/favoritesSlice";
 import ContentWrap from '../components/ContentWrap';
 import City from '../components/City';
 
 const Favorites = () => {
-    const favorites = useSelector(state => state.favorites.favorites);
+    const favorites = useFavorites();
     const dispatch = useDispatch();
 
     return (

@@ -1,12 +1,13 @@
 import React from 'react';
-import { useSelector } from "react-redux";
 import ContentWrap from '../components/ContentWrap';
 import CityWrapped from '../components/CityWrapped';
+import { useIsLoading, useData } from "../features/weatherSlice";
+import { useFavorites } from "../features/favoritesSlice";
 
 const Home = () => {
-    const isLoading = useSelector(state => state.weather.isLoading);
-    const data = useSelector(state => state.weather.data);
-    const favorites = useSelector(state => state.favorites.favorites);
+    const isLoading = useIsLoading();
+    const data = useData();
+    const favorites = useFavorites();
 
     if (isLoading) return (
         <ContentWrap>loading...</ContentWrap>
