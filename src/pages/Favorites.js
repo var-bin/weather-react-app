@@ -1,22 +1,23 @@
-import React, { useContext } from 'react';
-import { GlobalContext } from '../GlobalContext';
-import City from '../City';
+import React from 'react';
+import { useDispatch } from "react-redux";
+import { removeFavoriteItem, useFavorites } from "../features/favoritesSlice";
+import ContentWrap from '../components/ContentWrap';
+import City from '../components/City';
 
 const Favorites = () => {
-    const { state, dispatch } = useContext(GlobalContext);
+    const favorites = useFavorites();
+    const dispatch = useDispatch();
 
     return (
-        <div className="container pt-4 pb-4">
-            <div className="row row-cols-1 row-cols-lg-2 g-4">
-                 {state.favorites.map((city) => {
-                    return (
-                        <City {...city} key={city.Key}
-                        onDeleteFavorite={() => dispatch({ type: 'REMOVE_FAVORITE', payload: city.Key})}>
-                        </City>
-                    );
-                })}
-            </div>
-        </div>
+        <ContentWrap>
+            {favorites.map((city) => {
+                return (
+                    <City {...city} key={city.Key}
+                        onDeleteFavorite={() => dispatch(removeFavoriteItem(city.Key))}>
+                    </City>
+                );
+            })}
+        </ContentWrap>
     );
 };
 

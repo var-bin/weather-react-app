@@ -1,36 +1,32 @@
-import React, { useContext } from 'react';
-import { GlobalContext } from '../GlobalContext';
-import CityWrapped from '../CityWrapped';
+import React from 'react';
+import ContentWrap from '../components/ContentWrap';
+import CityWrapped from '../components/CityWrapped';
+import { useIsLoading, useData } from "../features/weatherSlice";
+import { useFavorites } from "../features/favoritesSlice";
 
 const Home = () => {
-    const { state } = useContext(GlobalContext);
+    const isLoading = useIsLoading();
+    const data = useData();
+    const favorites = useFavorites();
 
-    if (state.isLoading) return (
-        <div className="container pt-4 pb-4">
-            <div className="row row-cols-1 row-cols-lg-2 g-4">
-            loading...
-            </div>
-        </div>
+    if (isLoading) return (
+        <ContentWrap>loading...</ContentWrap>
     );
 
     return (
-        <div className="container pt-4 pb-4">
-            <div className="row row-cols-1 row-cols-lg-2 g-4">
-                  {state.weather.map((city, index) => {
-                    const isFavorite = state.favorites.findIndex(favorite => favorite?.Key === city.Key) > -1;
-
-                    return (
-                        <CityWrapped
-                            city={city}
-                            key={city.Key}
-                            index={index}
-                            isFavorite={isFavorite}
-                        />
-                    );
-                })}
-
-            </div>
-        </div>
+        <ContentWrap>
+            {data.map((city, index) => {
+                const isFavorite = favorites.findIndex(favorite => favorite?.Key === city.Key) > -1;
+                return (
+                    <CityWrapped
+                        city={city}
+                        key={city.Key}
+                        index={index}
+                        isFavorite={isFavorite}
+                    />
+                );
+            })}
+     </ContentWrap>
     );
 };
 

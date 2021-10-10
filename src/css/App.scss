@@ -11,6 +11,7 @@ body {
   min-height: 75rem;
   padding-top: 4.5rem;
 }
+
 svg {
   font-size: 4.8em;
 }
@@ -20,9 +21,11 @@ $font-family-base: "Open Sans",Roboto,Arial,sans-serif;
 $h2-font-size: 2.25rem;
 $h5-font-size: 1.125rem;
 $h6-font-size: $font-size-base;
+
 h5, .h5 {
   letter-spacing: -.06rem;
 }
+
 h6, .h6 {
   letter-spacing: .1rem;
 }
@@ -47,6 +50,7 @@ $nav-tabs-link-hover-border-color: $nav-tabs-link-active-border-color;
 .nav-link {
   border-bottom-width: 3px !important;
    cursor: pointer;
+
    .nav-tabs .active & {
     border-color: $nav-tabs-link-active-border-color;
     font-weight: 700;
@@ -57,10 +61,25 @@ $list-group-color: $body-color;
 $list-group-bg: transparent;
 $list-group-border-color: #806F6F;
 $list-group-item-padding-x: 0;
+
 .list-group-item {
-  border-color:  transparent transparent $list-group-border-color!important;
+  border-color:  transparent transparent $list-group-border-color !important;
 }
 
 $btn-focus-box-shadow: none;
+$input-bg: #fff;
+
+.form-switch {
+  padding-left: 0 !important;
+
+  .form-check-input {
+    margin: 6px 5px !important;
+    float: none !important;
+  }
+
+   svg {
+     font-size: 1em;
+   }
+}
 
 @import "~bootstrap/scss/bootstrap";

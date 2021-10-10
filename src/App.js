@@ -1,8 +1,11 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import axios from 'axios';
 import { createApi } from 'unsplash-js';
-import { GlobalContext } from './GlobalContext';
 import './css/App.scss';
+
+import { useDispatch } from "react-redux";
+import { loading, weatherData, imagesData, concatData, useWeather } from "./features/weatherSlice";
+
 // React router
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 // Pages
@@ -10,10 +13,12 @@ import Home from './pages/Home';
 import Favorites from './pages/Favorites';
 import Error from './pages/Error';
 // Navbar
-import Navbar from './Navbar';
+import Navbar from './components/Navbar';
+import Sortbar from './components/Sortbar';
 
 function App() {
-	const { state, dispatch } = useContext(GlobalContext);
+	const weather = useWeather();
+	const dispatch = useDispatch();
 
 	useEffect(() => {
 		(async () => {
@@ -21,23 +26,23 @@ function App() {
 				const url = 'http://dataservice.accuweather.com/currentconditions/v1/topcities/50?apikey=r0f1L4gMsX9SDBDfkv3b8tlkPCBILlvL&language=en';
 				const res = await axios.get(url);
 				// slice(0, N) - amount the weather card items
-				dispatch({ type: "CURRENT_CONDITIONS", payload: res.data.slice(0, 2) });
-				dispatch({ type: "LOADING", payload: false });
+				dispatch(weatherData(res.data.slice(0, 3)));
+				dispatch(loading(false));
 			}
 			catch {(error) => {
 				console.log('AccuWeather Error: ',error);
-				dispatch({ type: "LOADING", payload: false });
+				dispatch(loading(false));
 			}}
 		})();
 	}, []);
 
 	useEffect(() => {
-		dispatch({ type: "LOADING", payload: true });
-		if (state.weather) {
+		dispatch(loading(true));
+		if (weather) {
 			const unsplash = createApi({ accessKey: 'UFb-0W1ebRAVU6jawg9txBoQf633c4t8tA7TRvpDb88' });
 			let photoPromises = [];
 
-			photoPromises = state.weather.map(async city => {
+			photoPromises = weather.map(async city => {
 				try {
 					return unsplash.photos.getRandom({
 						query: city.EnglishName,
@@ -52,21 +57,23 @@ function App() {
 			(async () => {
 				try {
 					const values = await Promise.all(photoPromises);
-					dispatch({ type: "IMAGES", payload: values.map((item) => item.response[0].urls.small) });
-					dispatch({ type: "LOADING", payload: false });
+					dispatch(imagesData(values.map((item) => item.response[0].urls.small)));
+					//Concat weather and images(unsplash) results in one object
+					dispatch(concatData());
+					dispatch(loading(false));
 				}
 				catch {(error) => {
 					console.log('Unsplash Error: ',error);
-					dispatch({ type: "LOADING", payload: false });
+					dispatch(loading(false));
 				}}
-
 			})();
 		}
-	}, [state.weather]);
+	}, [weather]);
 
 	return (
 		<Router>
 			<Navbar />
+			<Sortbar />
 			<Switch>
 				<Route exact path="/">
 					<Home />
