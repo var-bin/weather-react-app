@@ -4,6 +4,21 @@ import { IconGrid, IconList } from '../icons/Icons';
 import { useDispatch } from "react-redux";
 import { toggleLayout } from "../features/switcherSlice";
 
+import styled from 'styled-components';
+
+const StyledFormSwitch = styled.div`
+    padding-left: 0;
+
+    .form-check-input {
+        margin: 6px 5px;
+        float: none;
+    }
+
+    svg {
+        font-size: 1em;
+    }
+`;
+
 const SwitchLayout = () => {
     const dispatch = useDispatch();
 
@@ -12,7 +27,7 @@ const SwitchLayout = () => {
     };
 
     return (
-        <div className="form-check form-switch">
+        <StyledFormSwitch className="form-check form-switch">
             <label htmlFor="switchLayout" onClick={toggleLayoutIcon}>
                 <IconGrid/>
             </label>
@@ -20,7 +35,7 @@ const SwitchLayout = () => {
             <label htmlFor="switchLayout" onClick={toggleLayoutIcon}>
                 <IconList />
             </label>
-        </div>
+        </StyledFormSwitch>
     );
 };
 

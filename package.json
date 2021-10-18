@@ -17,6 +17,7 @@
     "react-scripts": "4.0.3",
     "react-tabs": "^3.2.2",
     "redux": "^4.1.1",
+    "styled-components": "^5.3.1",
     "unsplash-js": "^7.0.15",
     "web-vitals": "^1.0.1"
   },
@@ -43,5 +44,8 @@
     "eslint": "^7.32.0",
     "eslint-plugin-react": "^7.26.0",
     "sass": "^1.42.0"
+  },
+  "resolutions": {
+    "styled-components": "^5"
   }
 }
