@@ -1,21 +1,8 @@
 import React from 'react';
 import { useDispatch } from "react-redux";
 import { toggleTemperature } from "../features/switcherSlice";
-
-import styled from 'styled-components';
-
-const StyledFormSwitch = styled.div`
-    padding-left: 0;
-
-    .form-check-input {
-        margin: 6px 5px;
-        float: none;
-    }
-
-    svg {
-        font-size: 1em;
-    }
-`;
+// css
+import { StyledFormSwitch } from "../css/styled-containers";
 
 const SwitchTemperature = () => {
     const dispatch = useDispatch();
