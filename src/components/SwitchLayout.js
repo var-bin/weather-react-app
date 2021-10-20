@@ -3,6 +3,8 @@ import React from 'react';
 import { IconGrid, IconList } from '../icons/Icons';
 import { useDispatch } from "react-redux";
 import { toggleLayout } from "../features/switcherSlice";
+// css
+import { StyledFormSwitch } from "../css/styled-containers";
 
 const SwitchLayout = () => {
     const dispatch = useDispatch();
@@ -12,7 +14,7 @@ const SwitchLayout = () => {
     };
 
     return (
-        <div className="form-check form-switch">
+        <StyledFormSwitch className="form-check form-switch">
             <label htmlFor="switchLayout" onClick={toggleLayoutIcon}>
                 <IconGrid/>
             </label>
@@ -20,7 +22,7 @@ const SwitchLayout = () => {
             <label htmlFor="switchLayout" onClick={toggleLayoutIcon}>
                 <IconList />
             </label>
-        </div>
+        </StyledFormSwitch>
     );
 };
 
