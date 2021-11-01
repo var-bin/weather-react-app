@@ -4,8 +4,24 @@ import { useIsUnitImperial } from "../features/switcherSlice";
 // import  weather and favorites icon's
 import { IconWeather, IconHeart,  IconHeartFill, IconDelete } from '../icons/Icons';
 
+type CityProps = {
+    img: string;
+    city: string;
+    country: string;
+    weatherText: string;
+    weatherIcon: React.ReactNode;
+    weatherTemperatureValue: number;
+    weatherTemperatureUnit: string;
+    weatherTemperatureUnitF: string;
+    weatherTemperatureValueF: number;
+    onIsFavorite: () => void;
+    isFavorite: boolean;
+    isShowDelete: boolean;
+    onDeleteFavorite: () => void;
+};
+
 const City = ({img, city, country, weatherText, weatherIcon, weatherTemperatureValue, weatherTemperatureUnit,
-    weatherTemperatureUnitF, weatherTemperatureValueF, onIsFavorite, isFavorite, isShowDelete, onDeleteFavorite}) => {
+    weatherTemperatureUnitF, weatherTemperatureValueF, onIsFavorite, isFavorite, isShowDelete, onDeleteFavorite}: CityProps) => {
 
     // switch between Celsius and Fahrenheit
     const isUnitImperial = useIsUnitImperial();

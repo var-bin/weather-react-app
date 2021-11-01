@@ -10,7 +10,7 @@ const Favorites = () => {
 
     return (
         <ContentWrap>
-            {favorites.map((city) => {
+            {favorites.map((city: any) => {
                 return (
                     <City {...city} key={city.Key}
                         onDeleteFavorite={() => dispatch(removeFavoriteItem(city.Key))}>

@@ -27,8 +27,12 @@ export const IconHeart = () => <IconHeartComponent />;
 export const IconHeartFill = () => <IconHeartFillComponent />;
 export const IconDelete = () => <IconDeleteComponent />;
 
-export const IconWeather = props => {
-    const iconByWeather = {
+type Props = {
+    iconNumb:  Props & React.ComponentPropsWithRef<IconWeather>,
+};
+
+export const IconWeather: React.FC<Props> = props => {
+    const iconByWeather: any  = {
         '7':  <IconCloudyComponent />,
         '31': <IconFrostComponent />,
         '24': <IconFrostComponent />,
@@ -57,5 +61,5 @@ export const IconWeather = props => {
         '2':  <IconSunnyComponent />,
         '33': <IconSunnyComponent />,
     }
-    return  iconByWeather[props.iconNumb] || null;
+    return iconByWeather[props.iconNumb] || null;
 };

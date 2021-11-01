@@ -15,8 +15,8 @@ const Home = () => {
 
     return (
         <ContentWrap>
-            {data.map((city, index) => {
-                const isFavorite = favorites.findIndex(favorite => favorite?.Key === city.Key) > -1;
+            {data.map((city:any, index: number) => {
+                const isFavorite = favorites.findIndex((favorite: any) => favorite?.Key === city.Key) > -1;
                 return (
                     <CityWrapped
                         city={city}

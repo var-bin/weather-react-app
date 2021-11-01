@@ -29,7 +29,7 @@ function App() {
 				dispatch(weatherData(res.data.slice(0, 3)));
 				dispatch(loading(false));
 			}
-			catch {(error) => {
+			catch {(error: Error) => {
 				console.log('AccuWeather Error: ',error);
 				dispatch(loading(false));
 			}}
@@ -42,7 +42,7 @@ function App() {
 			const unsplash = createApi({ accessKey: 'UFb-0W1ebRAVU6jawg9txBoQf633c4t8tA7TRvpDb88' });
 			let photoPromises = [];
 
-			photoPromises = weather.map(async city => {
+			photoPromises = weather.map(async (city: any) => {
 				try {
 					return unsplash.photos.getRandom({
 						query: city.EnglishName,
@@ -50,19 +50,19 @@ function App() {
 						orientation: 'landscape',
 					});
 				} catch (error) {
-					return await Promise.reject('Unsplash Error: ', error);
+					return await Promise.reject(error);
 				}
 			});
 
 			(async () => {
 				try {
 					const values = await Promise.all(photoPromises);
-					dispatch(imagesData(values.map((item) => item.response[0].urls.small)));
+					dispatch(imagesData(values.map((item: any) => item.response[0].urls.small)));
 					//Concat weather and images(unsplash) results in one object
 					dispatch(concatData());
 					dispatch(loading(false));
 				}
-				catch {(error) => {
+				catch {(error: Error) => {
 					console.log('Unsplash Error: ',error);
 					dispatch(loading(false));
 				}}
