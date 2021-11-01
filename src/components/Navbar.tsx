@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import SwitchLayout from './SwitchLayout';
 import SwitchTemperature from './SwitchTemperature';
 
-const Navbar = () => {
+const Navbar: React.FC = () => {
     return (
         <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark shadow-lg">
             <div className="container">

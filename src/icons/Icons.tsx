@@ -28,7 +28,7 @@ export const IconHeartFill = () => <IconHeartFillComponent />;
 export const IconDelete = () => <IconDeleteComponent />;
 
 type Props = {
-    iconNumb:  Props & React.ComponentPropsWithRef<IconWeather>,
+    iconNumb: any;
 };
 
 export const IconWeather: React.FC<Props> = props => {

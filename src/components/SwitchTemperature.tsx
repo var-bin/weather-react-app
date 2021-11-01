@@ -4,7 +4,7 @@ import { toggleTemperature } from "../features/switcherSlice";
 // css
 import { StyledFormSwitch } from "../css/styled-containers";
 
-const SwitchTemperature = () => {
+const SwitchTemperature: React.FC = () => {
     const dispatch = useDispatch();
 
     const toggleTemperatureIcon = () => {

@@ -4,7 +4,7 @@ import CityWrapped from '../components/CityWrapped';
 import { useIsLoading, useData } from "../features/weatherSlice";
 import { useFavorites } from "../features/favoritesSlice";
 
-const Home = () => {
+const Home: React.FC = () => {
     const isLoading = useIsLoading();
     const data = useData();
     const favorites = useFavorites();

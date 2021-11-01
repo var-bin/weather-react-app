@@ -1,10 +1,20 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { useSelector } from "react-redux";
-import type { RootState } from '../app/store';
+//import type { RootState } from '../app/store';
 
 // Define the initial state using that type
 interface Favorites {
   Key: number;
+  city: string;
+  country: string;
+  weatherTemperatureUnit: string;
+  weatherTemperatureValue: number;
+  weatherTemperatureUnitF: string;
+  weatherTemperatureValueF: number;
+  isFavorite: boolean;
+  isShowDelete: boolean;
+  WeatherIcon: number;
+  img: string;
 }
 
 export interface FavoritesState {
@@ -40,7 +50,8 @@ export const {
 
 // selectors
 export const useFavorites = () => {
-  return useSelector((state: RootState) => state.favorites.favorites);
+  //return useSelector((state: RootState) => state.favorites.favorites);
+  return useSelector((state: any) => state.favorites.favorites);
 }
 
 export default favoritesSlice.reducer;

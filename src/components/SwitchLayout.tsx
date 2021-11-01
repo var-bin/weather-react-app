@@ -6,7 +6,7 @@ import { toggleLayout } from "../features/switcherSlice";
 // css
 import { StyledFormSwitch } from "../css/styled-containers";
 
-const SwitchLayout = () => {
+const SwitchLayout: React.FC = () => {
     const dispatch = useDispatch();
 
     const toggleLayoutIcon = () => {

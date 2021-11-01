@@ -9,7 +9,7 @@ type Props = {
         img: string;
         LocalizedName: string;
         weatherText: string;
-        weatherIcon: React.ReactNode;
+        WeatherIcon: number;
         Country: {
             LocalizedName: string;
         },
@@ -33,6 +33,8 @@ const CityWrapped: React.FC<Props> = props => {
 
     const {
         Key,
+        img,
+        WeatherIcon,
         LocalizedName,
         Country,
         Temperature,
@@ -43,7 +45,9 @@ const CityWrapped: React.FC<Props> = props => {
 
     const onIsFavoriteHandler = () => {
         dispatch(addFavoriteItem({
-            Key,
+            Key: Key,
+            img: img,
+            WeatherIcon: WeatherIcon,
             city: LocalizedName,
             country: Country.LocalizedName,
             weatherTemperatureUnit: Temperature.Metric.Unit,
@@ -63,6 +67,8 @@ const CityWrapped: React.FC<Props> = props => {
             throw new Error('Function not implemented.');
         } } {...restProps}
 
+        img={img}
+        weatherIcon={WeatherIcon}
         city={LocalizedName}
         country={Country.LocalizedName}
         weatherTemperatureUnit={Temperature.Metric.Unit}

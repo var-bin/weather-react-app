@@ -4,7 +4,7 @@ import { removeFavoriteItem, useFavorites } from "../features/favoritesSlice";
 import ContentWrap from '../components/ContentWrap';
 import City from '../components/City';
 
-const Favorites = () => {
+const Favorites: React.FC = () => {
     const favorites = useFavorites();
     const dispatch = useDispatch();
 
