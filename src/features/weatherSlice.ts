@@ -6,7 +6,7 @@ interface Weather {
   Key: number;
   LocalizedName: string;
   EnglishName: string;
-  weatherText: string;
+  WeatherText: string;
   WeatherIcon: number;
   Country: {
       LocalizedName: string;
@@ -27,7 +27,7 @@ interface Data {
   Key: number;
   LocalizedName: string;
   EnglishName: string;
-  weatherText: string;
+  WeatherText: string;
   WeatherIcon: number;
   Country: {
       LocalizedName: string;

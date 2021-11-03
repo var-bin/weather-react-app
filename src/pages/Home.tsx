@@ -15,8 +15,21 @@ const Home: React.FC = () => {
 
     return (
         <ContentWrap>
-            {data.map((city:any, index: number) => {
-                const isFavorite = favorites.findIndex((favorite: any) => favorite?.Key === city.Key) > -1;
+            {data.map((
+                city: {
+                    Key: number;
+                    img: string;
+                    LocalizedName: string;
+                    WeatherText: string;
+                    WeatherIcon: number;
+                    Country: { LocalizedName: string; };
+                    Temperature: {
+                        Metric: { Unit: string; Value: number; };
+                        Imperial: { Unit: string; Value: number; };
+                    };
+                },
+                index: number) => {
+                const isFavorite = favorites.findIndex((favorite: { Key: number; }) => favorite?.Key === city.Key) > -1;
                 return (
                     <CityWrapped
                         city={city}

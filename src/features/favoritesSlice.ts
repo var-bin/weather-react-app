@@ -13,7 +13,8 @@ interface Favorites {
   weatherTemperatureValueF: number;
   isFavorite: boolean;
   isShowDelete: boolean;
-  WeatherIcon: number;
+  weatherIcon: number;
+  weatherText: string;
   img: string;
 }
 

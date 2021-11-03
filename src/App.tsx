@@ -42,7 +42,7 @@ function App() {
 			const unsplash = createApi({ accessKey: 'UFb-0W1ebRAVU6jawg9txBoQf633c4t8tA7TRvpDb88' });
 			let photoPromises = [];
 
-			photoPromises = weather.map(async (city: any) => {
+			photoPromises = weather.map(async (city: { EnglishName: string; }) => {
 				try {
 					return unsplash.photos.getRandom({
 						query: city.EnglishName,

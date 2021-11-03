@@ -8,7 +8,7 @@ type Props = {
         Key: number;
         img: string;
         LocalizedName: string;
-        weatherText: string;
+        WeatherText: string;
         WeatherIcon: number;
         Country: {
             LocalizedName: string;
@@ -35,6 +35,7 @@ const CityWrapped: React.FC<Props> = props => {
         Key,
         img,
         WeatherIcon,
+        WeatherText,
         LocalizedName,
         Country,
         Temperature,
@@ -47,7 +48,8 @@ const CityWrapped: React.FC<Props> = props => {
         dispatch(addFavoriteItem({
             Key: Key,
             img: img,
-            WeatherIcon: WeatherIcon,
+            weatherIcon: WeatherIcon,
+            weatherText: WeatherText,
             city: LocalizedName,
             country: Country.LocalizedName,
             weatherTemperatureUnit: Temperature.Metric.Unit,
@@ -69,6 +71,7 @@ const CityWrapped: React.FC<Props> = props => {
 
         img={img}
         weatherIcon={WeatherIcon}
+        weatherText={WeatherText}
         city={LocalizedName}
         country={Country.LocalizedName}
         weatherTemperatureUnit={Temperature.Metric.Unit}
