@@ -9,7 +9,7 @@ type CityProps = {
     city: string;
     country: string;
     weatherText: string;
-    weatherIcon: React.ReactNode;
+    weatherIcon: number;
     weatherTemperatureValue: number;
     weatherTemperatureUnit: string;
     weatherTemperatureUnitF: string;

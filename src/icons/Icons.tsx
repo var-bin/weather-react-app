@@ -28,11 +28,11 @@ export const IconHeartFill = () => <IconHeartFillComponent />;
 export const IconDelete = () => <IconDeleteComponent />;
 
 type Props = {
-    iconNumb: any;
+    iconNumb: number;
 };
 
 export const IconWeather: React.FC<Props> = props => {
-    const iconByWeather: any  = {
+    const iconByWeather: any = {
         '7':  <IconCloudyComponent />,
         '31': <IconFrostComponent />,
         '24': <IconFrostComponent />,
