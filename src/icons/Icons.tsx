@@ -32,7 +32,7 @@ type Props = {
 };
 
 export const IconWeather: React.FC<Props> = props => {
-    const iconByWeather: any = {
+    const iconByWeather: Record<string, JSX.Element> = {
         '7':  <IconCloudyComponent />,
         '31': <IconFrostComponent />,
         '24': <IconFrostComponent />,

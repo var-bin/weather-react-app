@@ -1,9 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { useSelector } from "react-redux";
-//import type { RootState } from '../app/store';
 
 // Define the initial state using that type
-interface Favorites {
+export interface Favorites {
   Key: number;
   city: string;
   country: string;
@@ -37,8 +36,8 @@ export const favoritesSlice = createSlice({
     addFavoriteItem: (state, action: PayloadAction<Favorites>) => {
       state.favorites = state.favorites.concat(action.payload);
     },
-    removeFavoriteItem: (state, action: PayloadAction<Favorites>) => {
-      state.favorites = state.favorites.filter((city: any) => city.Key !== action.payload);
+    removeFavoriteItem: (state, action: PayloadAction<number>) => {
+      state.favorites = state.favorites.filter((city: Favorites) => city.Key !== action.payload);
     },
   }
 })
@@ -52,7 +51,7 @@ export const {
 // selectors
 export const useFavorites = () => {
   //return useSelector((state: RootState) => state.favorites.favorites);
-  return useSelector((state: any) => state.favorites.favorites);
+  return useSelector((state: { favorites: FavoritesState }) => state.favorites.favorites);
 }
 
 export default favoritesSlice.reducer;

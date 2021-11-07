@@ -4,8 +4,8 @@ import { useSelector } from "react-redux";
 
 // Define a type for the slice state
 interface SwitcherState {
-  isListLayout: boolean,
-  isUnitImperial: boolean
+  isListLayout: boolean;
+  isUnitImperial: boolean;
 }
 
 // Define the initial state using that type
@@ -36,12 +36,12 @@ export const {
 // selectors
 export const useIsUnitImperial = () => {
   //return useSelector((state: RootState) => state.switcher.isUnitImperial);
-  return useSelector((state: any) => state.switcher.isUnitImperial);
+  return useSelector((state: { switcher: SwitcherState }) => state.switcher.isUnitImperial);
 }
 
 export const useIsListLayout = () => {
   //return useSelector((state: RootState) => state.switcher.isListLayout);
-  return useSelector((state: any) => state.switcher.isListLayout);
+  return useSelector((state: { switcher: SwitcherState }) => state.switcher.isListLayout);
 }
 
 export default switcherSlice.reducer;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from "react-redux";
-import { removeFavoriteItem, useFavorites } from "../features/favoritesSlice";
+import { removeFavoriteItem, useFavorites, Favorites as FavoritesCity } from "../features/favoritesSlice";
 import ContentWrap from '../components/ContentWrap';
 import City from '../components/City';
 
@@ -10,7 +10,7 @@ const Favorites: React.FC = () => {
 
     return (
         <ContentWrap>
-            {favorites.map((city: any) => {
+            {favorites.map((city: FavoritesCity) => {
                 return (
                     <City {...city} key={city.Key}
                         onDeleteFavorite={() => dispatch(removeFavoriteItem(city.Key))}>

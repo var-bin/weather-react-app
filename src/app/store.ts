@@ -11,7 +11,4 @@ export const store = configureStore({
   },
 });
 
-//type ReturnType<T extends (...args: any) => any> = T extends (...args: any) => infer R ? R : any;
-
-//export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;

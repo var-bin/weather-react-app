@@ -1,13 +1,15 @@
 import React, { useEffect } from 'react';
 import axios from 'axios';
 import { createApi } from 'unsplash-js';
-import './css/App.scss';
-
-import { useDispatch } from "react-redux";
-import { loading, weatherData, imagesData, concatData, useWeather } from "./features/weatherSlice";
-
 // React router
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { useDispatch } from "react-redux";
+import { Random } from 'unsplash-js/dist/methods/photos/types';
+
+import './css/App.scss';
+
+import { loading, weatherData, imagesData, concatData, useWeather } from "./features/weatherSlice";
+
 // Pages
 import Home from './pages/Home';
 import Favorites from './pages/Favorites';
@@ -48,7 +50,7 @@ function App() {
 						query: city.EnglishName,
 						count: 1,
 						orientation: 'landscape',
-					});
+					}).then(resp => resp.response);
 				} catch (error) {
 					return await Promise.reject(error);
 				}
@@ -56,8 +58,9 @@ function App() {
 
 			(async () => {
 				try {
-					const values = await Promise.all(photoPromises);
-					dispatch(imagesData(values.map((item: any) => item.response[0].urls.small)));
+					const values = await Promise.all(photoPromises) as Array<Array<Random>>;
+
+					dispatch(imagesData(values.map((item: Array<Random>) => item[0].urls.small)));
 					//Concat weather and images(unsplash) results in one object
 					dispatch(concatData());
 					dispatch(loading(false));

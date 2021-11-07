@@ -1,6 +1,5 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { useSelector } from "react-redux";
-//import type { RootState } from '../app/store';
 
 interface Weather {
   Key: number;
@@ -9,18 +8,18 @@ interface Weather {
   WeatherText: string;
   WeatherIcon: number;
   Country: {
-      LocalizedName: string;
-  },
+    LocalizedName: string;
+  };
   Temperature: {
-      Metric: {
-          Unit: string;
-          Value: number;
-      },
-      Imperial: {
-          Unit: string;
-          Value: number;
-      },
-  },
+    Metric: {
+      Unit: string;
+      Value: number;
+    };
+    Imperial: {
+      Unit: string;
+      Value: number;
+    };
+  };
 }
 
 interface Data {
@@ -30,27 +29,27 @@ interface Data {
   WeatherText: string;
   WeatherIcon: number;
   Country: {
-      LocalizedName: string;
-  },
+    LocalizedName: string;
+  };
   Temperature: {
-      Metric: {
-          Unit: string;
-          Value: number;
-      },
-      Imperial: {
-          Unit: string;
-          Value: number;
-      },
-  },
+    Metric: {
+      Unit: string;
+      Value: number;
+    };
+    Imperial: {
+      Unit: string;
+      Value: number;
+    };
+  };
   img: string;
 }
 
 // Define a type for the slice state
 export interface WeatherState {
-  isLoading: boolean,
-  weather: Weather[],
-  images: string[],
-  data: Data[],
+  isLoading: boolean;
+  weather: Weather[];
+  images: string[];
+  data: Data[];
 }
 
 // Define the initial state using that type
@@ -59,10 +58,10 @@ const initialState: WeatherState = {
   weather: [],
   images: [],
   data: [],
-}
+};
 
 export const weatherSlice = createSlice({
-  name: 'weather',
+  name: "weather",
   initialState,
   reducers: {
     loading: (state, action) => {
@@ -75,20 +74,35 @@ export const weatherSlice = createSlice({
       state.images = action.payload;
     },
     concatData: (state) => {
-      state.data = state.weather.map((item: any, index: number) => ({...item, img: state.images[index]}));
+      state.data = state.weather.map((item: Weather, index: number) => ({
+        ...item,
+        img: state.images[index],
+      }));
     },
     sortName: (state) => {
-      state.data = state.data.slice().sort((a: any, b: any) => (
-        a.LocalizedName > b.LocalizedName ? 1 : a.LocalizedName < b.LocalizedName ? -1 : 0
-      ));
+      state.data = state.data
+        .slice()
+        .sort((a: Weather, b: Weather) =>
+          a.LocalizedName > b.LocalizedName
+            ? 1
+            : a.LocalizedName < b.LocalizedName
+            ? -1
+            : 0
+        );
     },
     sortTemperature: (state) => {
-      state.data = state.data.slice().sort((a: any, b: any) => (
-        a.Temperature.Metric.Value > b.Temperature.Metric.Value ? 1 : a.Temperature.Metric.Value < b.Temperature.Metric.Value ? -1 : 0
-      ));
+      state.data = state.data
+        .slice()
+        .sort((a: Weather, b: Weather) =>
+          a.Temperature.Metric.Value > b.Temperature.Metric.Value
+            ? 1
+            : a.Temperature.Metric.Value < b.Temperature.Metric.Value
+            ? -1
+            : 0
+        );
     },
-  }
-})
+  },
+});
 
 // Action creators are generated for each case reducer function
 export const {
@@ -103,17 +117,21 @@ export const {
 // selectors
 export const useIsLoading = () => {
   //return useSelector((state: RootState) => state.weather.isLoading);
-  return useSelector((state: any) => state.weather.isLoading);
-}
+  return useSelector(
+    (state: { weather: WeatherState }) => state.weather.isLoading
+  );
+};
 
 export const useWeather = () => {
   //return useSelector((state: RootState) => state.weather.weather);
-  return useSelector((state: any) => state.weather.weather);
-}
+  return useSelector(
+    (state: { weather: WeatherState }) => state.weather.weather
+  );
+};
 
 export const useData = () => {
   //return useSelector((state: RootState) => state.weather.data);
-  return useSelector((state: any) => state.weather.data);
-}
+  return useSelector((state: { weather: WeatherState }) => state.weather.data);
+};
 
 export default weatherSlice.reducer;
