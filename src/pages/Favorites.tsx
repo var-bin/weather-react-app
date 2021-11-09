@@ -1,6 +1,6 @@
 import React from 'react';
-import { useDispatch } from "react-redux";
-import { removeFavoriteItem, useFavorites, Favorites as FavoritesCity } from "../features/favoritesSlice";
+import { useDispatch } from 'react-redux';
+import { removeFavoriteItem, useFavorites, Favorites as FavoritesCity } from '../features/favoritesSlice';
 import ContentWrap from '../components/ContentWrap';
 import City from '../components/City';
 

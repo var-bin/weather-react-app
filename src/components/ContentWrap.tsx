@@ -1,5 +1,5 @@
 import React from 'react';
-import { useIsListLayout } from "../features/switcherSlice";
+import { useIsListLayout } from '../features/switcherSlice';
 
 type Props = {
     className?: string;

@@ -1,6 +1,6 @@
 import React, { Fragment, FC } from 'react';
 import { format } from 'date-fns';
-import { useIsUnitImperial } from "../features/switcherSlice";
+import { useIsUnitImperial } from '../features/switcherSlice';
 // import  weather and favorites icon's
 import { IconWeather, IconHeart, IconHeartFill, IconDelete } from '../icons/Icons';
 

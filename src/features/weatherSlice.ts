@@ -1,5 +1,5 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { useSelector } from "react-redux";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { useSelector } from 'react-redux';
 
 interface Weather {
   Key: number;
@@ -61,7 +61,7 @@ const initialState: WeatherState = {
 };
 
 export const weatherSlice = createSlice({
-  name: "weather",
+  name: 'weather',
   initialState,
   reducers: {
     loading: (state, action) => {
@@ -115,23 +115,22 @@ export const {
 } = weatherSlice.actions;
 
 // selectors
-export const useIsLoading = () => {
-  //return useSelector((state: RootState) => state.weather.isLoading);
+export const useIsLoading = ():boolean => {
   return useSelector(
     (state: { weather: WeatherState }) => state.weather.isLoading
   );
 };
 
-export const useWeather = () => {
-  //return useSelector((state: RootState) => state.weather.weather);
+export const useWeather = ():Weather[] => {
   return useSelector(
     (state: { weather: WeatherState }) => state.weather.weather
   );
 };
 
-export const useData = () => {
-  //return useSelector((state: RootState) => state.weather.data);
-  return useSelector((state: { weather: WeatherState }) => state.weather.data);
+export const useData = ():Data[] => {
+  return useSelector(
+    (state: { weather: WeatherState }) => state.weather.data
+  );
 };
 
 export default weatherSlice.reducer;

@@ -20,12 +20,12 @@ import { ReactComponent as IconSnowComponent } from './weather-icons/icon-snow.s
 import { ReactComponent as IconStrongMistComponent } from './weather-icons/icon-strong-mist.svg';
 import { ReactComponent as IconSunnyComponent } from './weather-icons/icon-sunny.svg';
 
-export const IconGrid = () => <IconGridComponent />;
-export const IconList = () => <IconListComponent />;
+export const IconGrid: React.FC = () => <IconGridComponent />;
+export const IconList: React.FC = () => <IconListComponent />;
 
-export const IconHeart = () => <IconHeartComponent />;
-export const IconHeartFill = () => <IconHeartFillComponent />;
-export const IconDelete = () => <IconDeleteComponent />;
+export const IconHeart: React.FC = () => <IconHeartComponent />;
+export const IconHeartFill: React.FC = () => <IconHeartFillComponent />;
+export const IconDelete: React.FC = () => <IconDeleteComponent />;
 
 type Props = {
     iconNumb: number;

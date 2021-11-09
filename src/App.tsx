@@ -3,7 +3,7 @@ import axios from 'axios';
 import { createApi } from 'unsplash-js';
 // React router
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { useDispatch } from "react-redux";
+import { useDispatch } from 'react-redux';
 import { Random } from 'unsplash-js/dist/methods/photos/types';
 
 import './css/App.scss';
@@ -18,7 +18,7 @@ import Error from './pages/Error';
 import Navbar from './components/Navbar';
 import Sortbar from './components/Sortbar';
 
-function App() {
+const App: React.FC = () => {
 	const weather = useWeather();
 	const dispatch = useDispatch();
 

@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { useSelector } from "react-redux";
+import { useSelector } from 'react-redux';
 
 // Define the initial state using that type
 export interface Favorites {
@@ -49,9 +49,10 @@ export const {
 } = favoritesSlice.actions;
 
 // selectors
-export const useFavorites = () => {
-  //return useSelector((state: RootState) => state.favorites.favorites);
-  return useSelector((state: { favorites: FavoritesState }) => state.favorites.favorites);
+export const useFavorites = ():Favorites[] => {
+  return useSelector(
+    (state: { favorites: FavoritesState }) => state.favorites.favorites
+  );
 }
 
 export default favoritesSlice.reducer;
