@@ -2,6 +2,7 @@ import React from 'react';
 
 import { ReactComponent as IconGridComponent } from './layout-icons/grid.svg';
 import { ReactComponent as IconListComponent } from './layout-icons/list.svg';
+import { ReactComponent as IconSearchComponent } from './layout-icons/search.svg';
 
 import { ReactComponent as IconHeartComponent } from './status-icons/heart.svg';
 import { ReactComponent as IconHeartFillComponent } from './status-icons/heart-fill.svg';
@@ -22,6 +23,7 @@ import { ReactComponent as IconSunnyComponent } from './weather-icons/icon-sunny
 
 export const IconGrid = () => <IconGridComponent />;
 export const IconList = () => <IconListComponent />;
+export const IconSearch = () => <IconSearchComponent />;
 
 export const IconHeart = () => <IconHeartComponent />;
 export const IconHeartFill = () => <IconHeartFillComponent />;

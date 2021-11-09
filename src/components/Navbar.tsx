@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import SwitchLayout from './SwitchLayout';
 import SwitchTemperature from './SwitchTemperature';
+import SearchCity from './SearchCity';
 
 const Navbar: React.FC = () => {
     return (
@@ -14,6 +15,9 @@ const Navbar: React.FC = () => {
                     <li className="nav-item fs-4 fw-bold">
                         <NavLink exact  to="/favorites" className="nav-link" activeClassName="active">Favorites</NavLink>
                     </li>
+                </ul>
+                <ul className="nav">
+                    <li className="nav-item"><SearchCity /></li>
                 </ul>
                 <ul className="nav fs-5  fw-bold">
                     <li className="nav-item nav-item me-4"><SwitchTemperature /></li>
