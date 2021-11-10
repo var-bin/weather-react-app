@@ -1,8 +1,8 @@
 import React from 'react';
 import ContentWrap from '../components/ContentWrap';
 import CityWrapped from '../components/CityWrapped';
-import { useIsLoading, useData } from "../features/weatherSlice";
-import { useFavorites } from "../features/favoritesSlice";
+import { useIsLoading, useData } from '../features/weatherSlice';
+import { useFavorites } from '../features/favoritesSlice';
 
 const Home: React.FC = () => {
     const isLoading = useIsLoading();

@@ -1,6 +1,6 @@
 import React from 'react';
-import { useDispatch } from "react-redux";
-import { addFavoriteItem } from "../features/favoritesSlice";
+import { useDispatch } from 'react-redux';
+import { addFavoriteItem } from '../features/favoritesSlice';
 import City from './City';
 
 type Props = {
