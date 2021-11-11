@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Error = () => {
+const Error: React.FC = () => {
     return (
         <div className="container pt-4 pb-4">
             <h1> Error page</h1>

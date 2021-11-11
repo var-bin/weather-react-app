@@ -20,15 +20,19 @@ import { ReactComponent as IconSnowComponent } from './weather-icons/icon-snow.s
 import { ReactComponent as IconStrongMistComponent } from './weather-icons/icon-strong-mist.svg';
 import { ReactComponent as IconSunnyComponent } from './weather-icons/icon-sunny.svg';
 
-export const IconGrid = () => <IconGridComponent />;
-export const IconList = () => <IconListComponent />;
+export const IconGrid: React.FC = () => <IconGridComponent />;
+export const IconList: React.FC = () => <IconListComponent />;
 
-export const IconHeart = () => <IconHeartComponent />;
-export const IconHeartFill = () => <IconHeartFillComponent />;
-export const IconDelete = () => <IconDeleteComponent />;
+export const IconHeart: React.FC = () => <IconHeartComponent />;
+export const IconHeartFill: React.FC = () => <IconHeartFillComponent />;
+export const IconDelete: React.FC = () => <IconDeleteComponent />;
 
-export const IconWeather = props => {
-    const iconByWeather = {
+type Props = {
+    iconNumb: number;
+};
+
+export const IconWeather: React.FC<Props> = props => {
+    const iconByWeather: Record<string, JSX.Element> = {
         '7':  <IconCloudyComponent />,
         '31': <IconFrostComponent />,
         '24': <IconFrostComponent />,
@@ -57,5 +61,5 @@ export const IconWeather = props => {
         '2':  <IconSunnyComponent />,
         '33': <IconSunnyComponent />,
     }
-    return  iconByWeather[props.iconNumb] || null;
+    return iconByWeather[props.iconNumb] || null;
 };

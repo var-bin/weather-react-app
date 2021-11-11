@@ -1,10 +1,26 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, FC } from 'react';
 import { format } from 'date-fns';
-import { useIsUnitImperial } from "../features/switcherSlice";
+import { useIsUnitImperial } from '../features/switcherSlice';
 // import  weather and favorites icon's
-import { IconWeather, IconHeart,  IconHeartFill, IconDelete } from '../icons/Icons';
+import { IconWeather, IconHeart, IconHeartFill, IconDelete } from '../icons/Icons';
 
-const City = ({img, city, country, weatherText, weatherIcon, weatherTemperatureValue, weatherTemperatureUnit,
+type CityProps = {
+    img: string;
+    city: string;
+    country: string;
+    weatherText: string;
+    weatherIcon: number;
+    weatherTemperatureValue: number;
+    weatherTemperatureUnit: string;
+    weatherTemperatureUnitF: string;
+    weatherTemperatureValueF: number;
+    onIsFavorite?: () => void;
+    isFavorite: boolean;
+    isShowDelete: boolean;
+    onDeleteFavorite: () => void;
+};
+
+const City: FC<CityProps> = ({img, city, country, weatherText, weatherIcon, weatherTemperatureValue, weatherTemperatureUnit,
     weatherTemperatureUnitF, weatherTemperatureValueF, onIsFavorite, isFavorite, isShowDelete, onDeleteFavorite}) => {
 
     // switch between Celsius and Fahrenheit

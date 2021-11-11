@@ -1,8 +1,8 @@
 import React from 'react';
-import { useDispatch } from "react-redux";
-import { sortName, sortTemperature } from "../features/weatherSlice";
+import { useDispatch } from 'react-redux';
+import { sortName, sortTemperature } from '../features/weatherSlice';
 
-const Sortbar = () => {
+const Sortbar: React.FC = () => {
     const dispatch = useDispatch();
 
     const sortNameCards = () => {

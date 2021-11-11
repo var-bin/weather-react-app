@@ -9,4 +9,6 @@ export const store = configureStore({
     favorites: favoritesReducer,
     switcher: switcherReducer,
   },
-})
+});
+
+export type AppDispatch = typeof store.dispatch;

@@ -1,13 +1,15 @@
 import React, { useEffect } from 'react';
 import axios from 'axios';
 import { createApi } from 'unsplash-js';
-import './css/App.scss';
-
-import { useDispatch } from "react-redux";
-import { loading, weatherData, imagesData, concatData, useWeather } from "./features/weatherSlice";
-
 // React router
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { Random } from 'unsplash-js/dist/methods/photos/types';
+
+import './css/App.scss';
+
+import { loading, weatherData, imagesData, concatData, useWeather } from "./features/weatherSlice";
+
 // Pages
 import Home from './pages/Home';
 import Favorites from './pages/Favorites';
@@ -16,7 +18,7 @@ import Error from './pages/Error';
 import Navbar from './components/Navbar';
 import Sortbar from './components/Sortbar';
 
-function App() {
+const App: React.FC = () => {
 	const weather = useWeather();
 	const dispatch = useDispatch();
 
@@ -29,7 +31,7 @@ function App() {
 				dispatch(weatherData(res.data.slice(0, 3)));
 				dispatch(loading(false));
 			}
-			catch {(error) => {
+			catch {(error: Error) => {
 				console.log('AccuWeather Error: ',error);
 				dispatch(loading(false));
 			}}
@@ -42,27 +44,28 @@ function App() {
 			const unsplash = createApi({ accessKey: 'UFb-0W1ebRAVU6jawg9txBoQf633c4t8tA7TRvpDb88' });
 			let photoPromises = [];
 
-			photoPromises = weather.map(async city => {
+			photoPromises = weather.map(async (city: { EnglishName: string; }) => {
 				try {
 					return unsplash.photos.getRandom({
 						query: city.EnglishName,
 						count: 1,
 						orientation: 'landscape',
-					});
+					}).then(resp => resp.response);
 				} catch (error) {
-					return await Promise.reject('Unsplash Error: ', error);
+					return await Promise.reject(error);
 				}
 			});
 
 			(async () => {
 				try {
-					const values = await Promise.all(photoPromises);
-					dispatch(imagesData(values.map((item) => item.response[0].urls.small)));
+					const values = await Promise.all(photoPromises) as Array<Array<Random>>;
+
+					dispatch(imagesData(values.map((item: Array<Random>) => item[0].urls.small)));
 					//Concat weather and images(unsplash) results in one object
 					dispatch(concatData());
 					dispatch(loading(false));
 				}
-				catch {(error) => {
+				catch {(error: Error) => {
 					console.log('Unsplash Error: ',error);
 					dispatch(loading(false));
 				}}

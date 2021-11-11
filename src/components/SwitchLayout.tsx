@@ -1,12 +1,12 @@
 import React from 'react';
 // import  layout icon's
 import { IconGrid, IconList } from '../icons/Icons';
-import { useDispatch } from "react-redux";
-import { toggleLayout } from "../features/switcherSlice";
+import { useDispatch } from 'react-redux';
+import { toggleLayout } from '../features/switcherSlice';
 // css
-import { StyledFormSwitch } from "../css/styled-containers";
+import { StyledFormSwitch } from '../css/styled-containers';
 
-const SwitchLayout = () => {
+const SwitchLayout: React.FC = () => {
     const dispatch = useDispatch();
 
     const toggleLayoutIcon = () => {
