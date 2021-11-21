@@ -12,3 +12,20 @@ export const StyledFormSwitch = styled.div`
         font-size: 1em;
     }
 `;
+
+export const StyledSearchForm = styled.form`
+    display: flex;
+
+    .form-control {
+        padding-left: 0;
+        padding-right: 0;
+        background-color: transparent;
+        border-width: 0 0 1px;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    svg {
+        font-size: 1.25em;
+    }
+`;

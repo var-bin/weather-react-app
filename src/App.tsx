@@ -13,6 +13,7 @@ import { loading, weatherData, imagesData, concatData, useWeather } from "./feat
 // Pages
 import Home from './pages/Home';
 import Favorites from './pages/Favorites';
+import Search from './pages/Search';
 import Error from './pages/Error';
 // Navbar
 import Navbar from './components/Navbar';
@@ -76,13 +77,17 @@ const App: React.FC = () => {
 	return (
 		<Router>
 			<Navbar />
-			<Sortbar />
 			<Switch>
 				<Route exact path="/">
+					<Sortbar />
 					<Home />
 				</Route>
 				<Route path="/favorites">
+					<Sortbar />
 					<Favorites />
+				</Route>
+				<Route path="/search">
+					<Search />
 				</Route>
 				<Route path="*">
 					<Error />
