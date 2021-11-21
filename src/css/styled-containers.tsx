@@ -13,7 +13,7 @@ export const StyledFormSwitch = styled.div`
     }
 `;
 
-export const StyledSearchInput = styled.div`
+export const StyledSearchForm = styled.form`
     display: flex;
 
     .form-control {
